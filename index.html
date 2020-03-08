@@ -93,7 +93,7 @@
                     if (xhr.status === 200) {
                         let json = JSON.parse(xhr.responseText);
                         console.log(json);
-                        document.getElementById("weather-description").innerHTML = json.data.base.sign;
+                        document.getElementById("weather-description").innerHTML = json.data.coins[0].name;
                     } else {
                         console.log('error msg: ' + xhr.status);
                     }
