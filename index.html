@@ -17,8 +17,9 @@
         <div id="clock"></div>
         <div class="crypto">
             <div class="row">
-                <div id="btc_price" class="inline"></div>
-                <div class="inline"></div>
+                <div id="crypto-curr" class="inline"></div>               
+                <div id="price" class="inline"></div>
+                <div id="base_curr" class="inline"></div>
             </div>
         </div>
         <div class="bookmark-container">
@@ -92,7 +93,9 @@
                     if (xhr.status === 200) {
                         let json = JSON.parse(xhr.responseText);
                         console.log(json);
-                        document.getElementById("btc_price").innerHTML = json.data.coins[0].price;
+                        document.getElementById("crypto-curr").innerHTML = json.data.coins[0].symbol;
+                        document.getElementById("price").innerHTML = json.data.coins[0].price;
+                        document.getElementById("base_curr").innerHTML = json.data.stats.base;       
                     } else {
                         console.log('error msg: ' + xhr.status);
                     }
