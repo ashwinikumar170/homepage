@@ -17,9 +17,7 @@
         <div id="clock"></div>
         <div class="crypto">
             <div class="row">
-                <div id="bitcoin" class="inline"></div>
-                <div id="btc_price" class="inline"></div>
-                <div id="btc_base_curr" class="inline"></div>             
+                <div id="btc_price" class="inline"></div>       
             </div>
         </div>
         <div class="bookmark-container">
@@ -94,7 +92,6 @@
                         let json = JSON.parse(xhr.responseText);
                         console.log(json);
                         document.getElementById("btc_price").innerHTML = json.data.coins[0].price;
-                        document.getElementById("btc_base_curr").innerHTML = json.stats.base;
                     } else {
                         console.log('error msg: ' + xhr.status);
                     }
