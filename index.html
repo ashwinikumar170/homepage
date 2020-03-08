@@ -15,11 +15,11 @@
     </div>
     <div class="container">
         <div id="clock"></div>
-        <div class="weather-container">
+        <div class="crypto">
             <div class="row">
-                <div id="weather-description"class="inline"></div>
-                <div class="inline">-</div>
-                <div id="temp" class="inline"></div>
+                <div id="bitcoin" class="inline"></div>
+                <div id="btc_price"class="inline"></div>
+                <div id="btc_base_curr"class="inline"></div>             
             </div>
         </div>
         <div class="bookmark-container">
@@ -87,13 +87,14 @@
         window.onload = () => {
             let xhr = new XMLHttpRequest();
             // Request to open weather map
-            xhr.open('GET', 'https://api.coinranking.com/v1/public/coins?base=EUR&timePeriod=7d');
+            xhr.open('GET', 'https://api.coinranking.com/v1/public/coins?base=USD&timePeriod=7d');
             xhr.onload = () => {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
                         let json = JSON.parse(xhr.responseText);
                         console.log(json);
-                        document.getElementById("weather-description").innerHTML = json.data.coins[0].name;
+                        document.getElementById("btc_price").innerHTML = json.data.coins[0].price;
+                        document.getElementById("btc_base_curr").innerHTML = json.stats.base;
                     } else {
                         console.log('error msg: ' + xhr.status);
                     }
